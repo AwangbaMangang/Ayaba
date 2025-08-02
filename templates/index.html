@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English to Meetei Mayek Wikipedia Translator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Meetei+Mayek&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Wikipedia to Meetei Mayek Translator</h1>
+        <p>Translate any Wikipedia article from English to Meetei Mayek</p>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <div class="search-container">
+                <select id="lang-select">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="bn">Bengali</option>
+                </select>
+                <input type="text" id="wiki-search" placeholder="Enter Wikipedia article title">
+                <button id="fetch-btn">Fetch Article</button>
+            </div>
+            <div class="loading" id="loading-fetch">
+                <div class="spinner"></div>
+                <span>Fetching article from Wikipedia...</span>
+            </div>
+        </section>
+
+        <section class="article-section">
+            <div class="article-container">
+                <div class="article-header">
+                    <h2 id="article-title"></h2>
+                    <a id="wiki-link" target="_blank" class="wiki-link">View on Wikipedia</a>
+                </div>
+                <div class="article-content">
+                    <div class="article-panel english-panel">
+                        <h3>Original Article</h3>
+                        <div class="content-box" id="english-content"></div>
+                    </div>
+                    <div class="article-panel meetei-panel">
+                        <h3>Meetei Mayek Translation</h3>
+                        <div class="controls">
+                            <button id="translate-btn">Translate to Meetei Mayek</button>
+                            <div class="progress-info" id="progress-info"></div>
+                        </div>
+                        <div class="content-box meetei-font" id="meetei-content"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="loading" id="loading-translate">
+                <div class="spinner"></div>
+                <span>Translating to Meetei Mayek... This may take several minutes</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Powered by Meta's NLLB model and Wikipedia API</p>
+        <p>© 2023 English to Meetei Mayek Translator</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
